@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function page() {
+export default async function page() {
+
+
   return (
-    <div>resono</div>
+    <main className='h-dvh w-dvw grid place-items-center'>
+      resono
+    </main>
   );
 }

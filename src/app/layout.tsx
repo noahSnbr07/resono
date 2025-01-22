@@ -4,6 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Resono",
   description: "Listen to community-driven media",
+  creator: "noahsnbr07",
 };
 
 export default function RootLayout({
@@ -12,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html translate="no" lang="en">
       <body>
         {children}
       </body>
