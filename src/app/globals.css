@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+body,
+html {
    height: 100dvh;
    width: 100dvw;
    margin: 0px;
@@ -16,4 +17,5 @@ body {
    outline: none;
    user-select: none;
    box-sizing: border-box;
+   overflow: hidden;
 }

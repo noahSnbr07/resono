@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
+import Sidebar from "@/components/side-bar";
+import SideBarContextProvider from "@/context/side-bar-context";
+
 export const metadata: Metadata = {
   title: "Resono",
   description: "Listen to community-driven media",
@@ -15,7 +17,12 @@ export default function RootLayout({
   return (
     <html translate="no" lang="en">
       <body>
-        {children}
+        <SideBarContextProvider>
+          <>
+            <Sidebar />
+            {children}
+          </>
+        </SideBarContextProvider>
       </body>
     </html>
   );
