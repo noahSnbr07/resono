@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import useSideBar from "@/hooks/use-side-bar";
 import Image from "next/image";
 import { icon } from "@/assets/assets";
+import sideBarLinks from "@/constants/side-bar-links";
+import SideBarLinkEntry from "./side-bar-link-entry";
 
 export default function Sidebar() {
 
@@ -21,9 +23,9 @@ export default function Sidebar() {
          {active && (
             <motion.div
                onClick={close}
-               transition={{ type: "tween" }}
-               initial={{ x: "-100%" }}
-               animate={{ x: 0 }}
+               transition={{ type: "tween", duration: .25 }}
+               initial={{ x: "-100%", opacity: 0 }}
+               animate={{ x: 0, opacity: 1 }}
                className="size-full flex"
                style={stylesheet}>
                <div className="w-2/3 bg-darken flex flex-col">
@@ -39,6 +41,15 @@ export default function Sidebar() {
                   </div>
                   <div className="flex-1 flex flex-col p-4 gap-4">
 
+                     {/* list all links */}
+                     {sideBarLinks.map((link) => (
+                        <SideBarLinkEntry
+                           key={link.id}
+                           icon={link.icon}
+                           href={link.href}
+                           id={link.id}
+                           title={link.title} />
+                     ))}
                   </div>
                </div>
             </motion.div>

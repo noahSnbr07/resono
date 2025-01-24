@@ -8,6 +8,14 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-model test {
-  id String @id @default(uuid())
+model article {
+  //defaults
+  id      String   @id @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props
+  title String
+  body  String
+  tags  String[]
 }
