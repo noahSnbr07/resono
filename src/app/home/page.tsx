@@ -8,8 +8,7 @@ export default function page() {
    return (
       <PageWrapper
          title='Home'
-         stylesheet={stylesheet}
-         header={<>hi</>}>
+         stylesheet={stylesheet}>
          <TagLine />
          <Link href={"/search"}>search</Link>
       </PageWrapper>

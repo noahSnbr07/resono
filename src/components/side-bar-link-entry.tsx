@@ -7,13 +7,15 @@ interface SideBarLinkEntryProps {
    href: string;
    title: string;
    icon: string;
+   active: boolean;
 }
-export default function SideBarLinkEntry({ href, title, icon, id }: SideBarLinkEntryProps) {
+export default function SideBarLinkEntry({ href, title, icon, id, active }: SideBarLinkEntryProps) {
    return (
       <Link
+         style={{ background: active ? 'rgba(255, 255, 255, 0.1)' : "" }}
          key={id}
          href={href}
-         className='flex gap-4'>
+         className='flex p-4 rounded-lg gap-4'>
          <Image
             src={icon}
             draggable={false}

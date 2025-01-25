@@ -4,8 +4,15 @@ const db = new PrismaClient();
 
 async function main() {
 
-   try {
+   const selection = {
+      title: true,
+      body: true,
+   }
 
+   try {
+      const articles = await db.article.findMany({ select: selection });
+      console.table(articles);
+      console.log(`count: ${articles.length}`);
    } finally {
       await db.$disconnect();
       console.log("Database disconnected.");

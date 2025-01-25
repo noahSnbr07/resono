@@ -7,6 +7,7 @@ import Image from "next/image";
 import { icon } from "@/assets/assets";
 import sideBarLinks from "@/constants/side-bar-links";
 import SideBarLinkEntry from "./side-bar-link-entry";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
 
@@ -17,6 +18,8 @@ export default function Sidebar() {
       position: "absolute",
       backdropFilter: `blur(${8}px)`,
    }
+
+   const pathname = usePathname();
 
    return (
       <AnimatePresence mode="wait">
@@ -39,11 +42,12 @@ export default function Sidebar() {
                      />
                      <p className="font-bold text-lg opacity-50"> Sidebar </p>
                   </div>
-                  <div className="flex-1 flex flex-col p-4 gap-4">
+                  <div className="flex-1 flex flex-col p-4">
 
                      {/* list all links */}
                      {sideBarLinks.map((link) => (
                         <SideBarLinkEntry
+                           active={pathname === link.href}
                            key={link.id}
                            icon={link.icon}
                            href={link.href}

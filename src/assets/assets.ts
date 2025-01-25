@@ -8,6 +8,8 @@ import search from './svg/search.svg';
 import settings from './svg/settings.svg';
 import admin from "./svg/admin.svg";
 import library from "./svg/library.svg";
+import upload from "./svg/upload.svg";
+
 //export assets
 
 export {
@@ -20,4 +22,5 @@ export {
    settings,
    admin,
    library,
+   upload,
 }

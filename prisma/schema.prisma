@@ -19,3 +19,33 @@ model article {
   body  String
   tags  String[]
 }
+
+model song {
+  //defaults
+  id      String   @id @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props 
+  artists   artist[]
+  title     String
+  duration  Int
+  thumbnail String
+  audio     String
+  explicit  Boolean
+}
+
+model artist {
+  //defaults
+  id      String   @id @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props
+  title     String
+  thumbnail String
+
+  //relations
+  song   song?   @relation(fields: [songId], references: [id])
+  songId String?
+}
