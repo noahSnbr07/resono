@@ -9,6 +9,9 @@ import settings from './svg/settings.svg';
 import admin from "./svg/admin.svg";
 import library from "./svg/library.svg";
 import upload from "./svg/upload.svg";
+import priority from "./svg/priority.svg";
+import check from "./svg/check.svg";
+import close from './svg/close.svg';
 
 //export assets
 
@@ -23,4 +26,7 @@ export {
    admin,
    library,
    upload,
+   priority,
+   check,
+   close,
 }

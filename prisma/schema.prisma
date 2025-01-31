@@ -49,3 +49,16 @@ model artist {
   song   song?   @relation(fields: [songId], references: [id])
   songId String?
 }
+
+model report {
+  //defaults
+  id      String   @id @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props
+  resolved    Boolean @default(false)
+  title       String
+  description String
+  important   Boolean @default(false)
+}
