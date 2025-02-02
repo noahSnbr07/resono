@@ -2,19 +2,28 @@
 
 import Image from "next/image";
 import { search } from "@/assets/assets";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect } from "react";
 import useUploadContext from "../../hooks/useUploadContext";
 import getContent from "../../server/get-content";
+import { redirect, useSearchParams } from "next/navigation";
 
 export default function Searchbar() {
 
     const { query, setQuery, setSongs, setArtists } = useUploadContext();
 
+    const params = useSearchParams();
+
+    useEffect(() => {
+        const retrievedQuery = params.get("query")
+        if (retrievedQuery) setQuery(retrievedQuery);
+        updateResult()
+    }, [params]);
+
     async function updateResult() {
-        setQuery("");
         const { songs, artists } = await getContent({ query });
         setSongs(songs);
         setArtists(artists);
+        redirect(`/upload/find?query=${encodeURIComponent(query)}`);
     }
 
     return (
