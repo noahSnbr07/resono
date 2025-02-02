@@ -2,13 +2,21 @@
 
 import Image from "next/image";
 import { search } from "@/assets/assets";
-import { ChangeEvent, useEffect } from "react";
+import { ChangeEvent, Suspense, useEffect } from "react";
 import useUploadContext from "../../hooks/useUploadContext";
 import getContent from "../../server/get-content";
 import { redirect, useSearchParams } from "next/navigation";
+import PageWrapper from "@/components/page-wrapper/page-wrapper";
 
 export default function Searchbar() {
+    return (
+        <Suspense fallback={<PageWrapper> loading ... </PageWrapper>}>
+            <SearchbarSuspended />
+        </Suspense>
+    );
+}
 
+function SearchbarSuspended() {
     const { query, setQuery, setSongs, setArtists } = useUploadContext();
 
     const params = useSearchParams();
