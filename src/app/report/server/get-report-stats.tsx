@@ -6,7 +6,6 @@ import { report } from "@prisma/client";
 
 export default async function getReportStats(): Promise<ReportStats> {
     const reports = await database.report.findMany();
-    console.log(reports);
 
     const covered = reports.filter((element: report) => element.resolved).length;
     const important = reports.filter((element: report) => element.important).length;

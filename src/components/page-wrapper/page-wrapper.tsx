@@ -19,7 +19,7 @@ export default function PageWrapper({ children, header, stylesheet, title }: Pag
 
    return (
       <motion.div className="flex flex-col size-full">
-         <header className="bg-stack flex p-4 gap-4 items-center">
+         <header className="bg-stack flex p-3 gap-3 items-center">
             <SideBarLink />
             {title && <p className="font-bold text-md text-brighten"> {title} </p>}
             {header}

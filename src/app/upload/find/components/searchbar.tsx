@@ -2,46 +2,29 @@
 
 import Image from "next/image";
 import { search } from "@/assets/assets";
-import { ChangeEvent, Suspense, useEffect } from "react";
+import { ChangeEvent } from "react";
 import useUploadContext from "../../hooks/useUploadContext";
 import getContent from "../../server/get-content";
-import { redirect, useSearchParams } from "next/navigation";
-import PageWrapper from "@/components/page-wrapper/page-wrapper";
 
 export default function Searchbar() {
-    return (
-        <Suspense fallback={<PageWrapper> loading ... </PageWrapper>}>
-            <SearchbarSuspended />
-        </Suspense>
-    );
-}
-
-function SearchbarSuspended() {
     const { query, setQuery, setSongs, setArtists } = useUploadContext();
 
-    const params = useSearchParams();
-
-    useEffect(() => {
-        const retrievedQuery = params.get("query")
-        if (retrievedQuery) setQuery(retrievedQuery);
-        updateResult()
-    }, [params]);
-
     async function updateResult() {
+        if (query.length < 1) return;
         const { songs, artists } = await getContent({ query });
         setSongs(songs);
         setArtists(artists);
-        redirect(`/upload/find?query=${encodeURIComponent(query)}`);
     }
 
     return (
-        <div className="flex flex-1 bg-stack rounded-lg h-8">
+        <div className="flex flex-1 rounded-lg h-8">
             <input
+                autoFocus
                 value={query}
                 onChange={(e: ChangeEvent<HTMLInputElement>): void => {
                     setQuery(e.target.value);
                 }}
-                placeholder="Query"
+                placeholder="What do you want to listen to?"
                 className="flex-1 px-2 bg-transparent"
             />
             <button

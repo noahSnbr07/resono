@@ -18,7 +18,7 @@ export default async function getContent({ query }: { query: string; }): Promise
    const count = 20;
 
    // Construct URL
-   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&key=${key}&maxResults=${count}`;
+   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query.trim())}&key=${key}&maxResults=${count}`;
 
    // Parsing response
    const response = await fetch(url);
@@ -42,19 +42,20 @@ export default async function getContent({ query }: { query: string; }): Promise
       //add it to the list
       songs.push(song);
 
-      //extract 2 valeus
+      //extract 2 values
       const artistName = item.snippet.channelTitle;
       const artistThumbnail = item.snippet.thumbnails.default.url;
+      const artistID = item.id.videoId
 
       //filter channels by matching title and name
       if (!artists.some(artist => artist.title === artistName)) {
          artists.push({
             thumbnail: artistThumbnail,
-            title: artistName
+            title: artistName,
+            artistID: artistID,
          });
       }
    });
-
 
    //returning both lists
    return { songs, artists };
