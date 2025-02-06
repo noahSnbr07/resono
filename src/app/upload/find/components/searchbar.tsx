@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { search } from "@/assets/assets";
-import { ChangeEvent } from "react";
+import { ChangeEvent, KeyboardEvent } from "react";
 import useUploadContext from "../../hooks/useUploadContext";
 import getContent from "../../server/get-content";
 
@@ -17,9 +17,11 @@ export default function Searchbar() {
         setArtists(artists);
     }
 
-    onkeydown = (event: KeyboardEvent) => {
-        if (event.key === "Enter") updateResult();
-    }
+    const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter") {
+            updateResult();
+        }
+    };
 
     return (
         <div className="flex flex-1 rounded-lg h-8">
@@ -29,6 +31,7 @@ export default function Searchbar() {
                 onChange={(e: ChangeEvent<HTMLInputElement>): void => {
                     setQuery(e.target.value);
                 }}
+                onKeyDown={handleKeyDown}
                 placeholder="What do you want to listen to?"
                 className="flex-1 px-2 bg-transparent"
             />
