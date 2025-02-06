@@ -42,5 +42,4 @@ next-env.d.ts
 certificates
 .env*.local
 tests
-src/app/upload/configure/artist/page.tsx
 test

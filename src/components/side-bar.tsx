@@ -13,8 +13,6 @@ export default function Sidebar() {
 
    const { active, close } = useSideBar();
 
-   useEffect(() => { console.log(active) }, [active])
-
    const stylesheet: CSSProperties = {
       background: "rgba(0, 0, 0, .5)",
       position: "absolute",
