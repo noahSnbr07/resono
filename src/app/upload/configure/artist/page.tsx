@@ -9,29 +9,23 @@ import Intro from "./components/intro";
 import BackgroundWrapper from "./components/background";
 import UploadButton from "./components/upload-button";
 
-type SearchParamsType = {
-    searchParams: Record<string, string | string[] | undefined>;
-};
+export default async function Page({ searchParams }: { searchParams: { id?: string } }) {
+    const id = searchParams.id;
 
-export default async function Page({ searchParams }: SearchParamsType) {
-    // Extract 'id' from searchParams
-    const id = searchParams.id as string | undefined;
-
-    // Early return if no id
+    // If `id` is missing, redirect to a "not found" page
     if (!id) {
-        redirect("/not-found");
-        return null; // Required to prevent further rendering
+        return redirect("/not-found");
     }
 
-    // Retrieve artist metadata via the id
+    // Fetch detailed artist metadata
     const artist = await getDetailedArtistMetaData(id);
 
-    // Early return if no artist found
+    // If artist data doesn't exist, redirect
     if (!artist) {
-        redirect("/not-found");
-        return null; // Required to prevent further rendering
+        return redirect("/not-found");
     }
 
+    // Render the page with the fetched artist data
     return (
         <PageWrapper
             title={artist.title}
