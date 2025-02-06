@@ -14,28 +14,37 @@ type SearchParamsType = {
 };
 
 export default async function Page({ searchParams }: SearchParamsType) {
+    // Extract 'id' from searchParams
+    const id = searchParams.id as string | undefined;
 
+    // Early return if no id
+    if (!id) {
+        redirect("/not-found");
+        return null; // Required to prevent further rendering
+    }
 
-    const { id } = await searchParams;
+    // Retrieve artist metadata via the id
+    const artist = await getDetailedArtistMetaData(id);
 
-
-    //retrieve artist meta data via params
-    const artist = await getDetailedArtistMetaData(String(id));
-
-    //early return if no params
-    if (!id || !artist) redirect("/not-found");
-
+    // Early return if no artist found
+    if (!artist) {
+        redirect("/not-found");
+        return null; // Required to prevent further rendering
+    }
 
     return (
         <PageWrapper
             title={artist.title}
-            stylesheet={stylesheet}>
+            stylesheet={stylesheet}
+        >
             <BackgroundWrapper
-                url={artist.banner}>
+                url={artist.banner}
+            >
                 <div>
                     <Banner
-                        title={artist?.title}
-                        url={artist?.banner} />
+                        title={artist.title}
+                        url={artist.banner}
+                    />
                     <Intro artist={artist} />
                 </div>
                 <UploadButton
