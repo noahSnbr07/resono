@@ -11,9 +11,14 @@ export default function Searchbar() {
 
     async function updateResult() {
         if (query.length < 1) return;
+        setQuery("");
         const { songs, artists } = await getContent({ query });
         setSongs(songs);
         setArtists(artists);
+    }
+
+    onkeydown = (event: KeyboardEvent) => {
+        if (event.key === "Enter") updateResult();
     }
 
     return (

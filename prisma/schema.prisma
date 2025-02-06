@@ -42,8 +42,12 @@ model artist {
   updated DateTime @updatedAt
 
   //props
-  title     String
-  thumbnail String
+  title       String
+  thumbnail   String
+  banner      String
+  description String
+  listeners   Int
+  uploads     Int
 
   //relations
   song   song?   @relation(fields: [songId], references: [id])

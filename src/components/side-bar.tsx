@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import useSideBar from "@/hooks/use-side-bar";
 import Image from "next/image";
@@ -13,6 +13,8 @@ export default function Sidebar() {
 
    const { active, close } = useSideBar();
 
+   useEffect(() => { console.log(active) }, [active])
+
    const stylesheet: CSSProperties = {
       background: "rgba(0, 0, 0, .5)",
       position: "absolute",
@@ -22,14 +24,15 @@ export default function Sidebar() {
    const pathname = usePathname();
 
    return (
-      <AnimatePresence mode="wait">
+      <AnimatePresence
+         mode="wait">
          {active && (
             <motion.div
                onClick={close}
                transition={{ type: "tween", duration: .25 }}
                initial={{ x: "-100%", opacity: 0 }}
                animate={{ x: 0, opacity: 1 }}
-               className="size-full flex"
+               className="size-full flex z-50"
                style={stylesheet}>
                <div className="w-2/3 bg-darken flex flex-col">
                   <div className="flex p-4 gap-4 items-center">

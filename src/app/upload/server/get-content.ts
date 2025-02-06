@@ -45,7 +45,7 @@ export default async function getContent({ query }: { query: string; }): Promise
       //extract 2 values
       const artistName = item.snippet.channelTitle;
       const artistThumbnail = item.snippet.thumbnails.default.url;
-      const artistID = item.id.videoId
+      const artistID = item.snippet.channelId;
 
       //filter channels by matching title and name
       if (!artists.some(artist => artist.title === artistName)) {

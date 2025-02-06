@@ -4,6 +4,7 @@ export interface YoutubeSearchResultItem {
     id: {
         kind: string;
         videoId: string;
+        channelId: string;
     };
     snippet: {
         publishedAt: string;
