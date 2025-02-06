@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties, useEffect } from "react";
+import { CSSProperties } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import useSideBar from "@/hooks/use-side-bar";
 import Image from "next/image";
