@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import uploadArtist from "../../server/upload-artist";
+import MutationResponse from "@/app/interfaces/mutation-response";
 
 interface UploadButtonComponentProps {
     banner: string;
@@ -21,7 +22,8 @@ export default function UploadButton({ banner, thumbnail, title, description, li
         setPending(true);
         try {
 
-            await uploadArtist({ banner, thumbnail, title, description, listeners, uploads });
+            const response: MutationResponse = await uploadArtist({ banner, thumbnail, title, description, listeners, uploads });
+            console.table(response);
 
         } catch (error) {
             console.log(error);

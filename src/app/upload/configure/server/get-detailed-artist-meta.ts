@@ -31,8 +31,8 @@ export default async function getDetailedArtistMetaData(artistID: string): Promi
                 channel.snippet.thumbnails.high.url ||
                 channel.snippet.thumbnails.medium.url ||
                 channel.snippet.thumbnails.default.url;
-            const listeners = channel.statistics.subscriberCount;
-            const uploads = channel.statistics.videoCount;
+            const listeners = Number(channel.statistics.subscriberCount);
+            const uploads = Number(channel.statistics.videoCount);
 
 
             return { banner, thumbnail, title, description, listeners, uploads }
