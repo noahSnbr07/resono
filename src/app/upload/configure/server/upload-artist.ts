@@ -16,7 +16,7 @@ export default async function uploadArtist(artistData: ArtistInput): Promise<Mut
         if (existingArtist) return {
             success: false,
             status: 500,
-            title: "artist exists",
+            title: `Artist "${existingArtist.title}" already registered`,
             message: "Artists already exists",
         }
 
@@ -25,7 +25,7 @@ export default async function uploadArtist(artistData: ArtistInput): Promise<Mut
         return {
             success: true,
             status: 200,
-            title: `${newArtist.title} has been added`,
+            title: `"${newArtist.title}" has been added`,
             message: "successful mutation",
         }
 
@@ -46,7 +46,7 @@ export default async function uploadArtist(artistData: ArtistInput): Promise<Mut
     return {
         success: false,
         status: 500,
-        title: "Error",
+        title: "Unexpected Server Error",
         message: "Unexpected Error",
     }
 }
