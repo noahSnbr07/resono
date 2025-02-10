@@ -19,3 +19,7 @@ html {
    box-sizing: border-box;
    overflow: hidden;
 }
+
+::-webkit-scrollbar {
+   width: 0;
+}
