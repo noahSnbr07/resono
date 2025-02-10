@@ -29,10 +29,10 @@ export default function PageWrapper({ children, header, stylesheet, title }: Pag
             <motion.div
                style={stylesheet}
                key={path}
-               initial={{ x: "-100%" }}
-               animate={{ x: 0, opacity: 1, transition: { type: "tween" } }}
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1, transition: { type: "tween" } }}
                exit={{ x: "100%" }}
-               transition={{ duration: 1 }}
+               transition={{ duration: .5 }}
                className="flex-1"
             >
                {children}

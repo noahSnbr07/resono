@@ -15,7 +15,7 @@ export default async function getContent({ query }: { query: string; }): Promise
    const key = process.env.GOOGLE_CLOUD_CONSOLE_API;
 
    // Results count
-   const count = 20;
+   const count = 10;
 
    // Construct URL
    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query.trim())}&key=${key}&maxResults=${count}`;
