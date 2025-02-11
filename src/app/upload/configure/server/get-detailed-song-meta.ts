@@ -32,11 +32,11 @@ export default async function getDetailedSongMeta(id: string): Promise<DetailedS
 
     //extract required data
     const thumbnail =
-        thumbnails.maxres.url ||
-        thumbnails.high.url ||
-        thumbnails.medium.url ||
-        thumbnails.standard.url ||
-        thumbnails.standard.url;
+        thumbnails.maxres?.url ||
+        thumbnails.high?.url ||
+        thumbnails.medium?.url ||
+        thumbnails.standard?.url ||
+        thumbnails.default?.url || "";
     const tags = snippet.tags;
     const title = snippet.title;
     const explicit = contentDetails.contentRating.ytRating === "ytAgeRestricted";
