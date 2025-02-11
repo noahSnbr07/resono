@@ -1,7 +1,7 @@
 import database from '@/database/database';
-import { article } from '@prisma/client';
 import React from 'react'
-import Article from './article';
+import ArticleEntry from './article';
+import { Article } from '@prisma/client';
 
 export default async function ArticleList() {
 
@@ -9,7 +9,7 @@ export default async function ArticleList() {
 
    return (
       <div>
-         {articles.map((article: article) => <Article key={article.id} article={article} />)}
+         {articles.map((article: Article) => <ArticleEntry key={article.id} article={article} />)}
       </div>
    );
 }

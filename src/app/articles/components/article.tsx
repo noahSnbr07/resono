@@ -1,6 +1,6 @@
-import { article } from "@prisma/client";
+import { Article } from "@prisma/client";
 
-export default function Article({ article }: { article: article }) {
+export default function ArticleEntry({ article }: { article: Article }) {
    const { title, body, tags } = article;
 
    const TagList = () => (
