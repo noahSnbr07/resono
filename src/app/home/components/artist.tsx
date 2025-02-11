@@ -1,10 +1,10 @@
 "use client";
 
-import { artist } from "@prisma/client";
+import { Artist } from "@prisma/client";
 import { motion } from 'framer-motion';
 import Image from "next/image";
 
-export default function Artist({ artist, index }: { artist: artist, index: number }) {
+export default function ArtistEntry({ artist, index }: { artist: Artist, index: number }) {
 
     return (
         <motion.div
