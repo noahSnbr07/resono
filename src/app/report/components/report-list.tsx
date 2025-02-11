@@ -1,7 +1,7 @@
-import { report } from "@prisma/client";
+import { Report } from "@prisma/client";
 import database from "@/database/database";
 import PostReportLink from "./post-report-link";
-import Report from "./report";
+import ReportEntry from "./report";
 
 export default async function ReportList() {
     const reports = await database.report.findMany();
@@ -9,7 +9,7 @@ export default async function ReportList() {
     return (
         <div className="flex flex-col overflow-y-scroll gap-2">
             <PostReportLink />
-            {reports.map((report: report, i: number) => <Report key={i} report={report} />)}
+            {reports.map((report: Report, i: number) => <ReportEntry key={i} report={report} />)}
         </div>
     );
 }

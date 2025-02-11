@@ -1,10 +1,10 @@
 'use server';
 
 import { check, close, priority } from "@/assets/assets";
-import { report } from "@prisma/client";
+import { Report } from "@prisma/client";
 import Image from "next/image";
 
-export default async function Report({ report }: { report: report }) {
+export default async function ReportEntry({ report }: { report: Report }) {
     const { resolved, title, description, important, created, updated } = report;
     return (
         <div
