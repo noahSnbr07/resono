@@ -12,6 +12,7 @@ import upload from "./svg/upload.svg";
 import priority from "./svg/priority.svg";
 import check from "./svg/check.svg";
 import close from './svg/close.svg';
+import explicit from './svg/explicit.svg';
 
 //export assets
 
@@ -29,4 +30,5 @@ export {
    priority,
    check,
    close,
+   explicit,
 }

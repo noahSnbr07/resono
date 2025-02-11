@@ -8,7 +8,7 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-model article {
+model Article {
   //defaults
   id      String   @id @default(uuid())
   created DateTime @default(now())
@@ -20,28 +20,32 @@ model article {
   tags  String[]
 }
 
-model song {
-  //defaults
+model Song {
+  // Defaults
   id      String   @id @default(uuid())
   created DateTime @default(now())
   updated DateTime @updatedAt
 
-  //props 
-  artists   artist[]
+  // Properties
   title     String
   duration  Int
   thumbnail String
   audio     String
   explicit  Boolean
+  tags      String[]
+
+  // Relations
+  artist   Artist @relation(fields: [artistId], references: [id])
+  artistId String
 }
 
-model artist {
-  //defaults
+model Artist {
+  // Defaults
   id      String   @id @default(uuid())
   created DateTime @default(now())
   updated DateTime @updatedAt
 
-  //props
+  // Properties
   title       String
   thumbnail   String
   banner      String
@@ -49,12 +53,11 @@ model artist {
   listeners   Int
   uploads     Int
 
-  //relations
-  song   song?   @relation(fields: [songId], references: [id])
-  songId String?
+  // Relations
+  songs Song[]
 }
 
-model report {
+model Report {
   //defaults
   id      String   @id @default(uuid())
   created DateTime @default(now())

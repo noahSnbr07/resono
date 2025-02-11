@@ -2,9 +2,9 @@
 
 import MutationResponse from "@/app/interfaces/mutation-response";
 import database from "@/database/database";
-import { artist } from "@prisma/client";
+import { Artist } from "@prisma/client";
 
-type ArtistInput = Omit<artist, "id" | "created" | "updated" | "songId">;
+type ArtistInput = Omit<Artist, "id" | "created" | "updated" | "songId">;
 
 export default async function uploadArtist(artistData: ArtistInput): Promise<MutationResponse> {
     const { title } = artistData;
