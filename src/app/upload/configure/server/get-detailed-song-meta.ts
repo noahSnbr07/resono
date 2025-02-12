@@ -3,6 +3,7 @@
 import { Artist } from "@prisma/client";
 import ISOToNumber from "../functions/iso-to-number";
 import getDetailedArtistMetaData from "./get-detailed-artist-meta";
+import uploadAudio from "./upload-audio";
 
 interface DetailedSong {
     thumbnail: string;
@@ -42,7 +43,7 @@ export default async function getDetailedSongMeta(id: string): Promise<DetailedS
     const explicit = contentDetails.contentRating.ytRating === "ytAgeRestricted";
     const artist = await getDetailedArtistMetaData(snippet.channelId) as Artist;
     const duration = await ISOToNumber(contentDetails.duration);
-    const audio = /*await uploadAudio(id) || "" */ "";
+    const audio = await uploadAudio(id) || "";
 
     return { thumbnail, tags, title, explicit, artist, duration, audio };
 

@@ -24,12 +24,12 @@ export default function Sidebar() {
       <AnimatePresence mode="wait">
          {active && (
             <motion.div
-               key={pathname} // Key ensures rerender on route change
+               key={pathname}
                onClick={close}
                transition={{ type: "tween", duration: 0.25 }}
                initial={{ x: "-100%", opacity: 0 }}
                animate={{ x: 0, opacity: 1 }}
-               exit={{ x: "-100%", opacity: 0 }} // Add exit animation
+               exit={{ x: "-100%", opacity: 0 }}
                className="size-full flex z-50"
                style={stylesheet}
             >

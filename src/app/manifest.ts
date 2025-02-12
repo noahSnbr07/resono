@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: 'Resono PWA',
+        name: 'Resono',
         short_name: 'Resono',
         description: 'Community Driven Media',
         start_url: '/',

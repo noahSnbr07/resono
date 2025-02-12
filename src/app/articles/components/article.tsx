@@ -1,6 +1,8 @@
 import { Article } from "@prisma/client";
 
 export default function ArticleEntry({ article }: { article: Article }) {
+
+   //destructure artist
    const { title, body, tags } = article;
 
    const TagList = () => (

@@ -10,7 +10,7 @@ datasource db {
 
 model Article {
   //defaults
-  id      String   @id @default(uuid())
+  id      String   @id @unique @default(uuid())
   created DateTime @default(now())
   updated DateTime @updatedAt
 
@@ -22,7 +22,7 @@ model Article {
 
 model Song {
   // Defaults
-  id      String   @id @default(uuid())
+  id      String   @id @unique @default(uuid())
   created DateTime @default(now())
   updated DateTime @updatedAt
 
@@ -35,13 +35,13 @@ model Song {
   tags      String[]
 
   // Relations
-  artist   Artist @relation(fields: [artistId], references: [id])
+  artist   Artist? @relation(fields: [artistId], references: [id])
   artistId String
 }
 
 model Artist {
   // Defaults
-  id      String   @id @default(uuid())
+  id      String   @id @unique @default(uuid())
   created DateTime @default(now())
   updated DateTime @updatedAt
 
@@ -59,7 +59,7 @@ model Artist {
 
 model Report {
   //defaults
-  id      String   @id @default(uuid())
+  id      String   @id @unique @default(uuid())
   created DateTime @default(now())
   updated DateTime @updatedAt
 

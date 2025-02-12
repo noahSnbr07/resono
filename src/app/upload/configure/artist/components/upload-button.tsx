@@ -24,7 +24,6 @@ export default function UploadButton({ banner, thumbnail, title, description, li
         if (pending) return;
         setPending(true);
         try {
-
             const response: MutationResponse = await uploadArtist({ banner, thumbnail, title, description, listeners, uploads });
             if (response.success) return success(response.title);
             return error(response.title);

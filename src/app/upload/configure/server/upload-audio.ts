@@ -16,17 +16,19 @@ export default async function uploadAudio(id: string): Promise<string | null> {
         const response = await fetch(url, options);
         const result = await response.json();
 
-        // Fetch the audio file
+        //refetch file
         const audioResponse = await fetch(result.link);
         const audioBlob = await audioResponse.blob();
 
         const { data, error } = await supabase
             .storage
-            .from("/audio")
+            .from("audio")
             .upload(`/${id}`, audioBlob, {
                 upsert: false,
             });
-        console.log({ data, error })
+        console.log({ data, error });
+
+        return data?.fullPath || "";
 
     } catch (error) {
         console.error(error);

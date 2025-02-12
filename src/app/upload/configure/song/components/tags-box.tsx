@@ -3,7 +3,7 @@ export default async function TagsBox({ tags }: { tags: string[] }) {
 
 
     return (
-        <div className="bg-stack flex flex-col gap-4 rounded-xl p-4">
+        <div className="bg-stack flex flex-col gap-4 rounded-lg p-4">
             <p className="text-xl font-bold"> Tags </p>
             <div className="flex-1 flex rounded-lg gap-2 flex-wrap">
                 {tags.map((tag: string, i: number) => (
