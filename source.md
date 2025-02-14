@@ -1,1 +1,1 @@
-[icons](https://fonts.google.com/icons?icon.style=Rounded&icon.size=24&icon.color=%23ffffff80)
+[icons](https://fonts.google.com/icons?icon.style=Rounded&icon.size=24&icon.color=%ffffff80)

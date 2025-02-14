@@ -13,6 +13,12 @@ import priority from "./svg/priority.svg";
 import check from "./svg/check.svg";
 import close from './svg/close.svg';
 import explicit from './svg/explicit.svg';
+import play from "./svg/play.svg";
+import pause from "./svg/pause.svg";
+import skip_prev from "./svg/skip_prev.svg";
+import skip_next from './svg/skip_next.svg';
+import shuffle from './svg/shuffle.svg';
+import repeat from './svg/repeat.svg';
 
 //export assets
 
@@ -31,4 +37,10 @@ export {
    check,
    close,
    explicit,
+   play,
+   pause,
+   skip_next,
+   skip_prev,
+   repeat,
+   shuffle,
 }
