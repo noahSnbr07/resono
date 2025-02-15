@@ -7,12 +7,10 @@ import database from "@/database/database";
 import Thumbnail from "./components/thumbnail";
 import Credits from "./components/credits";
 import Controls from "./components/controls";
+import { SearchParams } from "@/types/SearchParams";
 
-export default async function page({ searchParams, }: {
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}) {
-    const params = await searchParams;
-    const id = await params.song;
+export default async function page({ searchParams }: { searchParams: SearchParams }) {
+    const { id } = await searchParams;
     if (!id || id.length < 1) return redirect("/not-found");
 
     const song = await database.song.findUnique({ where: { id: String(id) } });

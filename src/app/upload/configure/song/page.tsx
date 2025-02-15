@@ -8,12 +8,12 @@ import ExplicitIndicator from "./components/explicit-indicator";
 import UploadButton from "./components/upload-button";
 import { SearchParams } from "next/dist/server/request/search-params";
 
-export default async function Page(searchParams: SearchParams) {
+export default async function page({ searchParams }: { searchParams: SearchParams }) {
     const { id } = searchParams || "";
-
     if (!id || id.length < 1) return redirect("/not-found");
 
     const song = await getDetailedSongMeta(String(id));
+    if (!song) return redirect("/not-found");
 
     return (
         <PageWrapper

@@ -8,16 +8,11 @@ import stylesheet from "./stylesheet";
 import Intro from "./components/intro";
 import BackgroundWrapper from "./components/background";
 import UploadButton from "./components/upload-button";
+import { SearchParams } from "@/types/SearchParams";
 
 
-export default async function page({
-    searchParams,
-}: {
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}) {
-    const params = await searchParams;
-    const id = await params.id;
-
+export default async function page({ searchParams }: { searchParams: SearchParams }) {
+    const { id } = await searchParams;
     if (!id || id.length < 1) return redirect("/not-found");
 
 
