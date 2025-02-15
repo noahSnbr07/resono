@@ -1,5 +1,3 @@
-"use client";
-
 import ControlAction from "./control-action";
 import detailsControlsAction from "@/constants/details-controls";
 

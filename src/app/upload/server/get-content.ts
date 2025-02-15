@@ -11,6 +11,8 @@ interface GetContentResponse {
 
 export default async function getContent({ query }: { query: string; }): Promise<GetContentResponse> {
 
+   if (!query || query.trim().length < 1) return { songs: [], artists: [] }
+
    // API key
    const key = process.env.GOOGLE_CLOUD_CONSOLE_API;
 

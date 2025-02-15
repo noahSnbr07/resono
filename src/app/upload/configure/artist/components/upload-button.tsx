@@ -1,39 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import uploadArtist from "../../server/upload-artist";
-import MutationResponse from "@/app/interfaces/mutation-response";
-import useToast from "@/hooks/use-toast";
 import { ClipLoader } from "react-spinners";
 
-interface UploadButtonComponentProps {
-    banner: string;
-    thumbnail: string;
-    title: string;
-    description: string;
-    listeners: number;
-    uploads: number;
-}
-
-export default function UploadButton({ banner, thumbnail, title, description, listeners, uploads }: UploadButtonComponentProps) {
+export default function UploadButton() {
 
     const [pending, setPending] = useState(false);
-    const { success, error } = useToast();
 
     async function postArtist() {
-        if (pending) return;
-        setPending(true);
-        try {
-            const response: MutationResponse = await uploadArtist({ banner, thumbnail, title, description, listeners, uploads });
-            if (response.success) return success(response.title);
-            return error(response.title);
-
-        } catch (error) {
-            console.log(error);
-        }
-        finally {
-            setPending(false);
-        }
+        setPending(true)
+        alert("out of service")
+        setPending(false)
     }
 
     return (

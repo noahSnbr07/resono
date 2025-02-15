@@ -1,18 +1,13 @@
 import Link from "next/link";
 import APIArtistResponse from "../../types/api-artist-response";
 import Image from "next/image";
-import { motion } from 'framer-motion';
 
 export default function Artist({ artist, index }: { artist: APIArtistResponse, index: number }) {
 
     if (!artist.artistID) return;
 
     return (
-        <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0, }}
-            transition={{ delay: index * .1 }}
-        >
+        <div>
             <Link
                 href={`/upload/configure/artist?id=${artist.artistID}`}
                 key={index}
@@ -28,6 +23,6 @@ export default function Artist({ artist, index }: { artist: APIArtistResponse, i
                     <p>{artist.title}</p>
                 </div>
             </Link>
-        </motion.div>
+        </div>
     )
 }

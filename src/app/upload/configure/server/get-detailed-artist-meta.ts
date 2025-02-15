@@ -3,6 +3,7 @@
 import { Artist } from "@prisma/client";
 
 interface DetailedArtist {
+    originId: string;
     title: string;
     description: string;
     banner: string;
@@ -35,9 +36,11 @@ export default async function getDetailedArtistMetaData(artistID: string): Promi
                 channel.snippet.thumbnails.default.url;
             const listeners = Number(channel.statistics.subscriberCount);
             const uploads = Number(channel.statistics.videoCount);
+            const originId = channel.id;
 
+            console.log("originId", originId)
 
-            return { banner, thumbnail, title, description, listeners, uploads } as Artist;
+            return { banner, thumbnail, title, description, listeners, uploads, originId } as Artist;
         } else {
             console.error('No channel found or invalid response data');
         }

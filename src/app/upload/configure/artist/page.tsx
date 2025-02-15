@@ -22,33 +22,22 @@ export default async function page({
 
 
     const artist = await getDetailedArtistMetaData(String(id));
-
     if (!artist) return redirect("/not-found");
 
 
     return (
         <PageWrapper
             title={artist.title}
-            stylesheet={stylesheet}
-        >
+            stylesheet={stylesheet}>
             <BackgroundWrapper
-                url={artist.banner}
-            >
+                url={artist.banner}>
                 <div>
                     <Banner
                         title={artist.title}
-                        url={artist.banner}
-                    />
+                        url={artist.banner} />
                     <Intro artist={artist} />
                 </div>
-                <UploadButton
-                    banner={artist.banner}
-                    thumbnail={artist.thumbnail}
-                    title={artist.title}
-                    description={artist.description}
-                    listeners={artist.listeners}
-                    uploads={artist.uploads}
-                />
+                <UploadButton />
             </BackgroundWrapper>
         </PageWrapper>
     );

@@ -1,12 +1,14 @@
-"use client";
-import useUploadContext from "../../hooks/useUploadContext";
 import APISongResponse from "../../types/api-song-response";
 import APIArtistResponse from "../../types/api-artist-response";
 import Song from "./song";
 import Artist from "./artist";
 
-export default function Content() {
-    const { songs, artists } = useUploadContext();
+interface ContentProps {
+    songs: APISongResponse[];
+    artists: APIArtistResponse[];
+}
+
+export default function Content({ songs, artists }: ContentProps) {
 
     return (
         <div className="overflow-y-scroll h-dvh">

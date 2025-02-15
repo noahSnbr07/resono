@@ -27,6 +27,7 @@ model Song {
   updated DateTime @updatedAt
 
   // Properties
+  originId  String   @unique
   title     String
   duration  Int
   thumbnail String
@@ -46,6 +47,7 @@ model Artist {
   updated DateTime @updatedAt
 
   // Properties
+  originId    String @unique
   title       String
   thumbnail   String
   banner      String

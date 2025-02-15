@@ -21,11 +21,10 @@ export default async function Songs() {
         <div className="flex flex-col gap-2">
             <p className="font-bold text-xl">Songs</p>
             <div className="flex gap-4 snap-x overflow-x-auto">
-                {songs.map((song, i) =>
+                {songs.map((song) =>
                     <SongEntry
                         key={song.id}
                         id={song.id}
-                        index={i}
                         thumbnail={song.thumbnail}
                         title={song.title}
                     />
