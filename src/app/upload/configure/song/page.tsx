@@ -9,7 +9,7 @@ import UploadButton from "./components/upload-button";
 import { SearchParams } from "next/dist/server/request/search-params";
 
 export default async function page({ searchParams }: { searchParams: SearchParams }) {
-    const { id } = await searchParams || "";
+    const id = searchParams?.id;
     if (!id || id.length < 1) return redirect("/not-found");
 
     const song = await getDetailedSongMeta(String(id));
