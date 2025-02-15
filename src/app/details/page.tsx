@@ -9,9 +9,9 @@ import Credits from "./components/credits";
 import Controls from "./components/controls";
 import { SearchParams } from "@/types/SearchParams";
 
-export default async function page({ searchParams }: { searchParams: SearchParams }) {
-    const { id } = await searchParams;
-    if (!id || id.length < 1) return redirect("/not-found");
+export default async function page(props: { searchParams: SearchParams }) {
+    const searchParams = await props.searchParams;
+    const id = searchParams.id;
 
     const song = await database.song.findUnique({ where: { id: String(id) } });
     if (!song) redirect("not-found");
