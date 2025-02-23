@@ -18,9 +18,9 @@ export default function UploadButton({ artist }: { artist: ArtistOmit }) {
         /* create artist */
         try {
             await createArtist(artist).then((response: MutationResponse) => {
-                if (!response.success) error(`${response.status} | ${response.title}`);
+                if (!response.success) return error(`${response.status} | ${response.title}`);
 
-                success(`${response.status} | ${response.title}`);
+                return success(`${response.status} | ${response.title}`);
 
             });
         } catch (exception) {
