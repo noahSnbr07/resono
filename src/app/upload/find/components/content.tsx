@@ -12,10 +12,12 @@ export default function Content({ songs, artists }: ContentProps) {
 
     return (
         <div className="overflow-y-scroll h-dvh">
-            <p className="text-xl font-bold"> Songs - {songs.length} </p>
-            {songs.map((song: APISongResponse, i: number) => <Song key={i} song={song} index={i} />)}
-            <p className="text-xl font-bold"> Artists - {artists.length} </p>
-            {artists.map((artist: APIArtistResponse, i: number) => <Artist key={i} artist={artist} index={i} />)}
+            {songs.length > 1 && <p className="text-xl font-bold"> Songs - {songs.length} </p>}
+            {songs.map((song: APISongResponse, i: number) =>
+                <Song key={i} song={song} index={i} />)}
+            {artists.length > 1 && <p className="text-xl font-bold"> Artists - {artists.length} </p>}
+            {artists.map((artist: APIArtistResponse, i: number) =>
+                <Artist key={i} artist={artist} index={i} />)}
         </div>
     );
 }

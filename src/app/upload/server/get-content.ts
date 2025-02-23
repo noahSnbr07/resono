@@ -11,6 +11,8 @@ interface GetContentResponse {
 
 export default async function getContent({ query }: { query: string; }): Promise<GetContentResponse> {
 
+   if (!query || query.length < 1) return { songs: [], artists: [] };
+
    if (!query || query.trim().length < 1) return { songs: [], artists: [] }
 
    // API key

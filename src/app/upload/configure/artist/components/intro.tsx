@@ -1,14 +1,6 @@
 import Image from "next/image";
 
-interface IntroComponent {
-    title: string;
-    thumbnail: string;
-    description: string;
-    listeners: number;
-    uploads: number;
-}
-
-export default function Intro({ artist }: { artist: IntroComponent }) {
+export default function Intro({ artist }: { artist: ArtistOmit }) {
     const { title, thumbnail, listeners, uploads } = artist;
 
     return (

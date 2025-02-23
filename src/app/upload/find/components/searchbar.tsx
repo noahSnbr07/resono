@@ -10,6 +10,9 @@ export default function Searchbar() {
             className="flex flex-1 rounded-lg h-8"
         >
             <input
+                autoComplete="off"
+                autoCorrect="off"
+                autoFocus
                 name="query"
                 placeholder="What do you want to listen to?"
                 className="flex-1 px-2 bg-transparent"

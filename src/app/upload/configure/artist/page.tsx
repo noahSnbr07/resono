@@ -8,14 +8,12 @@ import Intro from "./components/intro";
 import BackgroundWrapper from "./components/background";
 import UploadButton from "./components/upload-button";
 
-
 export default async function page(props: { searchParams: SearchParams }) {
     const searchParams = await props.searchParams;
     const id = searchParams.id;
 
     const artist = await getDetailedArtistMetaData(String(id));
     if (!artist) return redirect("/not-found");
-
 
     return (
         <PageWrapper
@@ -29,7 +27,9 @@ export default async function page(props: { searchParams: SearchParams }) {
                         url={artist.banner} />
                     <Intro artist={artist} />
                 </div>
-                <UploadButton />
+                <UploadButton
+                    artist={artist}
+                />
             </BackgroundWrapper>
         </PageWrapper>
     );
