@@ -7,3 +7,5 @@ type ArtistOmit = {
     listeners: number;
     uploads: number;
 }
+
+export default ArtistOmit;
