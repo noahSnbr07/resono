@@ -1,5 +1,6 @@
 "use client";
 
+import ArtistOmit from "@/app/upload/types/artist-omit";
 import MutationResponse from "@/app/interfaces/mutation-response";
 import createArtist from "@/app/server/create-artist";
 import useToast from "@/hooks/use-toast";

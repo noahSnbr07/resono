@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ArtistOmit from "@/app/upload/types/artist-omit";
 
 export default function Intro({ artist }: { artist: ArtistOmit }) {
     const { title, thumbnail, listeners, uploads } = artist;

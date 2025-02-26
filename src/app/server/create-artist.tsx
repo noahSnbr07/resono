@@ -2,6 +2,7 @@
 
 import database from "@/database/database";
 import MutationResponse from "../interfaces/mutation-response";
+import ArtistOmit from "@/app/upload/types/artist-omit";
 
 export default async function createArtist(artist: ArtistOmit): Promise<MutationResponse> {
 
